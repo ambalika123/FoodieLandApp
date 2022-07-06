@@ -1,8 +1,6 @@
 import React from "react";
 import App from "../App";
 import {
-  Box,
-  Stack,
   Heading,
   Text,
   Button,
@@ -12,7 +10,6 @@ import {
   Center,
   Input,
 } from "@chakra-ui/react";
-
 const Subscribe = (props) => {
   return (
     <Center>
@@ -33,7 +30,6 @@ const Subscribe = (props) => {
           <Heading fontSize="3xl" mt={10}>
             Deliciousness to your inbox
           </Heading>
-
           <Text mr={5} color="grey" fontSize="sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
             finibus placerat tellus. Donec augue ligula, dapibus nec lectus a,

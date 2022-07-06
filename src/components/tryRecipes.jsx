@@ -7,7 +7,8 @@ class TryRecipes extends Component {
     recipes: [],
   };
   getRecipes = () => {
-    return axios.get("http://95.111.202.157:8001/api/v1/getAllRecipes");
+    const url = "http://95.111.202.157:8001/api/v1/getAllRecipes";
+    return axios.get(url);
   };
   async componentDidMount() {
     const { data: recipes } = await this.getRecipes();
@@ -17,7 +18,7 @@ class TryRecipes extends Component {
   render() {
     return (
       <>
-        <Grid templateColumns="repeat(2, 2fr)" gap={6} m={10}>
+        <Grid templateColumns="repeat(2, 2fr)" gap={6} m={10} mt={40}>
           <GridItem>
             <Text fontSize="4xl" fontWeight="bold">
               Try this delicious recipe to make your day

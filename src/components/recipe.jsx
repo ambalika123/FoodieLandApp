@@ -14,7 +14,6 @@ const Recipe = ({ image, title, time, category }) => {
       <Heading noOfLines={1} size="sm" fontWeight="bold" m={5}>
         {title}
       </Heading>
-
       <Text noOfLines={1}>
         <Button
           fontSize={"sm"}

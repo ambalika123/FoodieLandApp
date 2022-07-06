@@ -1,26 +1,14 @@
 import React from "react";
-
 import {
   Link,
   Box,
   Flex,
   Text,
-  Button,
   Stack,
-  Container,
-  MenuButton,
-  Avatar,
-  Nav,
-  Spacer,
-  Center,
-  MenuItem,
-  MenuList,
-  Menu,
   HStack,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-
 const Links = ["Home", "Recipes", "Blog", "Contact", "About us"];
 const NavLink = ({ children }) => (
   <Link
@@ -40,7 +28,9 @@ const Header = () => {
   return (
     <Box margin="20px">
       <Flex alignItems={"center"} justifyContent={"space-between"}>
-        <Text fontWeight="bold">FoodieLand</Text>
+        <Text fontWeight="bold" fontStyle={"italic"} fontSize={"xl"}>
+          FoodieLand.
+        </Text>
         <HStack spacing={8} alignItems={"center"}>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
             {Links.map((link) => (

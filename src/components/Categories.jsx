@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Grid, GridItem, Image, Button, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Image, Button, Text, Center } from "@chakra-ui/react";
 class Categories extends Component {
   state = {
     category: [],
   };
   getCategories = () => {
-    return axios.get("http://95.111.202.157:8001/api/getAllCategory");
+    const url = "http://95.111.202.157:8001/api/getAllCategory";
+    return axios.get(url);
   };
   async componentDidMount() {
     const { data: category } = await this.getCategories();
@@ -37,13 +38,16 @@ class Categories extends Component {
           </GridItem>
         </Grid>
         <Grid templateColumns="repeat(6, 1fr)" gap={6} m={10}>
-          {this.state.category.slice(0, 6).map((cat) => (
+          {this.state.category.slice(1, 6).map((cat) => (
             <GridItem w="100%" h="10" key={cat._id} m={10}>
               <Image
-                w="100px"
+                borderRadius={"10px"}
+                boxSize="180px"
                 src={"http://95.111.202.157:8001/" + cat.image}
               />
-              {cat.categoryName}
+              <Center fontWeight={"bold"} boxShadow={10} mb={15}>
+                {cat.categoryName}
+              </Center>
             </GridItem>
           ))}
         </Grid>

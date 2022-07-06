@@ -1,8 +1,5 @@
 import React from "react";
-import App from "../App";
 import {
-  Box,
-  Stack,
   Heading,
   Text,
   Button,

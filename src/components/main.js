@@ -7,23 +7,22 @@ import TryRecipes from "./tryRecipes";
 import SimpleRecipes from "./simpleRecipes";
 import Instagram from "./Instagram";
 import ImageSlider from "./ImageSlider";
-import Banner from "./Banner";
-
+import { Box } from "@chakra-ui/react";
 const Main = () => {
   return (
     <>
-      <Header />
-      <Instagram />
-      {/* <Banner /> */}
-      <ImageSlider />
-      <Categories />
-      <SimpleRecipes />
-      <Chef />
-      <TryRecipes />
-      <Subscribe />
-      <Footer />
+      <Box>
+        <Header />
+        <ImageSlider />
+        <Categories />
+        <SimpleRecipes />
+        <Chef />
+        <Instagram />
+        <TryRecipes />
+        <Subscribe />
+        <Footer />
+      </Box>
     </>
   );
 };
-
 export default Main;

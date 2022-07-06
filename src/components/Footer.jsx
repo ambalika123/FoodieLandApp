@@ -1,26 +1,15 @@
 import React from "react";
-
 import {
   Link,
   Box,
   Flex,
   Text,
-  Button,
   Stack,
   Container,
-  MenuButton,
-  Avatar,
-  Nav,
-  Spacer,
-  Center,
-  MenuItem,
-  MenuList,
-  Menu,
   HStack,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-
 const Links = ["Recipes", "Blog", "Contact", "About us"];
 const NavLink = ({ children }) => (
   <Link
@@ -40,8 +29,9 @@ const Footer = () => {
   return (
     <Box m={100}>
       <Flex alignItems={"center"} justifyContent={"space-between"}>
-        <Text fontWeight="bold">FoodieLand</Text>
-
+        <Text fontWeight="bold" fontStyle={"italic"} fontSize={"xl"}>
+          FoodieLand.
+        </Text>
         <HStack spacing={8} alignItems={"center"}>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
             {Links.map((link) => (
@@ -50,7 +40,7 @@ const Footer = () => {
           </HStack>
         </HStack>
       </Flex>
-      <Flex borderBottom="1px" borderColor="gray.200">
+      <Flex borderBottom="1px" borderColor="gray.300">
         <Text color="grey" mb={7} fontSize={"sm"}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </Text>
@@ -63,12 +53,11 @@ const Footer = () => {
           direction={["column", "row", "row", "row"]}
           pt={[4, 4, 0, 0]}
         >
-          <Center>
-            <Text color={"grey"} fontSize={"sm"} m={5}>
+          <Container>
+            <Text color={"grey"} fontSize={"md"} mt={5}>
               @2020 Flowbase.Powered By Webflow
             </Text>
-          </Center>
-
+          </Container>
           <button>
             <FaFacebookF />
           </button>
