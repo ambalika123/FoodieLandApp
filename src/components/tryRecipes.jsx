@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Grid, GridItem, Image, Button, Text } from "@chakra-ui/react";
+import Recipe from "./recipe";
+import { Grid, GridItem, SimpleGrid, Text } from "@chakra-ui/react";
 class TryRecipes extends Component {
   state = {
     recipes: [],
@@ -30,21 +31,18 @@ class TryRecipes extends Component {
             </Text>
           </GridItem>
         </Grid>
-        <Grid templateColumns="repeat(4, 1fr)" gap={6} m={10}>
+
+        <SimpleGrid columns={4} spacing={6} m={5}>
           {this.state.recipes.map((rec) => (
-            <GridItem w="100%" h="10" key={rec._id} m={10}>
-              <Image
-                boxSize={"100px"}
-                m={10}
-                mb={20}
-                w="100px"
-                className="card-img-top"
-                src={"http://95.111.202.157:8001/" + rec.recipeId.image}
-              />
-              {rec.title}
-            </GridItem>
+            <Recipe
+              key={rec._id}
+              image={"http://95.111.202.157:8001/" + rec.recipeId.image}
+              title={rec.recipeId.title}
+              time={rec.recipeId.cookTime}
+              category={rec.recipeId.categoryId.categoryName}
+            />
           ))}
-        </Grid>
+        </SimpleGrid>
       </>
     );
   }

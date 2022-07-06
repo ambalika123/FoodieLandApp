@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Recipe from "./recipe";
 import {
   Grid,
   GridItem,
@@ -44,24 +45,18 @@ class SimpleRecipes extends Component {
             </Grid>
           </Container>
         </Center>
-        <Flex>
-          <SimpleGrid columns={4} gap={6}>
-            {this.state.recipes.map((rec) => (
-              <Box key={rec._id} m={5} bgColor={"#e6ffff"}>
-                <Image
-                  bgColor={"#e6ffff"}
-                  boxSize={"150px"}
-                  m={5}
-                  //mb={20}
-                  borderRadius="5px"
-                  className="card-img-top"
-                  src={"http://95.111.202.157:8001/" + rec.recipeId.image}
-                />
-                {rec.recipeId.title}
-              </Box>
-            ))}
-          </SimpleGrid>
-        </Flex>
+
+        <SimpleGrid columns={4} spacing={6} m={5}>
+          {this.state.recipes.map((rec) => (
+            <Recipe
+              key={rec._id}
+              image={"http://95.111.202.157:8001/" + rec.recipeId.image}
+              title={rec.recipeId.title}
+              time={rec.recipeId.cookTime}
+              category={rec.recipeId.categoryId.categoryName}
+            />
+          ))}
+        </SimpleGrid>
       </>
     );
   }

@@ -14,13 +14,8 @@ import {
 
 const Chef = (props) => {
   return (
-    <Center m={20}>
-      <Grid
-        m={20}
-        width="1000px"
-        mx="2px auto"
-        templateColumns="repeat(2, 1fr)"
-      >
+    <Center>
+      <Grid width="1000px" mx="2px auto" templateColumns="repeat(2, 1fr)">
         <GridItem>
           <Heading fontSize="4xl" m={8} mt={150}>
             Everyone can be a chef in their own kitchen
