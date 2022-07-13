@@ -14,7 +14,7 @@ class SimpleRecipes extends Component {
     recipes: [],
   };
   getRecipes = () => {
-    const url = "http://95.111.202.157:8001/api/popularRecipes";
+    const url = "https://foodielandnod.herokuapp.com/api/popularRecipes";
     return axios.get(url);
   };
   async componentDidMount() {
@@ -42,10 +42,12 @@ class SimpleRecipes extends Component {
           </Container>
         </Center>
         <SimpleGrid columns={4} spacing={6} m={5}>
-          {this.state.recipes.map((rec) => (
+          {this.state.recipes.slice(1, 5).map((rec) => (
             <Recipe
               key={rec._id}
-              image={"http://95.111.202.157:8001/" + rec.recipeId.image}
+              image={
+                "https://foodielandnod.herokuapp.com/" + rec.recipeId.image
+              }
               title={rec.recipeId.title}
               time={rec.recipeId.cookTime}
               category={rec.recipeId.categoryId.categoryName}

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import {
   Link,
   Box,
@@ -10,21 +11,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-const Links = ["Recipes", "Blog", "Contact", "About us"];
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
+
 const Footer = () => {
   return (
     <Box m={100}>
@@ -32,11 +19,17 @@ const Footer = () => {
         <Text fontWeight="bold" fontStyle={"italic"} fontSize={"xl"}>
           FoodieLand.
         </Text>
-        <HStack spacing={8} alignItems={"center"}>
+        <HStack
+          spacing={8}
+          alignItems={"center"}
+          fontWeight="bold"
+          fontSize={"sm"}
+        >
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-            {Links.map((link) => (
-              <NavLink key={link}>{link}</NavLink>
-            ))}
+            <NavLink to="/recipe">Recipes</NavLink>
+            <NavLink to="/listpage">Blog</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/about">About Us</NavLink>
           </HStack>
         </HStack>
       </Flex>
@@ -58,14 +51,20 @@ const Footer = () => {
               @2020 Flowbase.Powered By Webflow
             </Text>
           </Container>
-          <button>
-            <FaFacebookF />
+          <button spacing={10}>
+            <Link href="https://www.facebook.com/">
+              <FaFacebookF float={"right"} />
+            </Link>
           </button>
           <button>
-            <FaTwitter />
+            <Link href="https://twitter.com/login">
+              <FaTwitter />
+            </Link>
           </button>
           <button>
-            <FaInstagram />
+            <Link href="https://www.instagram.com/">
+              <FaInstagram />
+            </Link>
           </button>
         </Stack>
       </Box>

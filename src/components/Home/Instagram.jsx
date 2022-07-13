@@ -16,7 +16,7 @@ class Instagram extends Component {
     blogs: [],
   };
   getBlogs = () => {
-    const url = "http://95.111.202.157:8001/api/getAllBlog";
+    const url = "https://foodielandnod.herokuapp.com/api/getAllBlog";
     return axios.get(url);
   };
   async componentDidMount() {
@@ -42,7 +42,7 @@ class Instagram extends Component {
             {this.state.blogs.slice(1, 5).map((blog) => (
               <Recipe
                 key={blog._id}
-                image={"http://95.111.202.157:8001/" + blog.image}
+                image={"https://foodielandnod.herokuapp.com/" + blog.image}
                 title={blog.title}
                 category={blog.description}
               />

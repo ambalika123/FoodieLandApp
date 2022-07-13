@@ -10,6 +10,7 @@ import {
   Center,
   Wrap,
   WrapItem,
+  Link,
 } from "@chakra-ui/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { BsPlayCircle } from "react-icons/bs";
@@ -19,13 +20,14 @@ import { TbToolsKitchen2 } from "react-icons/tb";
 import { Carousel } from "react-responsive-carousel";
 import moment from "moment";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 class Banner extends Component {
   state = {
     images: [],
   };
 
   getImages = () => {
-    const url = "http://95.111.202.157:8001/api/popularRecipes";
+    const url = "https://foodielandnod.herokuapp.com/api/popularRecipes";
     return axios.get(url);
   };
   async componentDidMount() {
@@ -60,7 +62,7 @@ class Banner extends Component {
                     <CgNotes />
                     Hot Recipes
                   </Button>
-                  <Heading fontSize="5xl" m={5}>
+                  <Heading fontSize="5xl" m={5} noOfLines={2}>
                     {rec.recipeId.title}
                   </Heading>
                   <Text m={5} mr={5} color="grey" fontSize={"sm"}>
@@ -99,7 +101,7 @@ class Banner extends Component {
                       <Avatar
                         name="Kent Dodds"
                         src={
-                          "http://95.111.202.157:8001/" +
+                          "https://foodielandnod.herokuapp.com/" +
                           rec.recipeId.userId.Image
                         }
                         ml={5}
@@ -124,7 +126,7 @@ class Banner extends Component {
                         align="right"
                       >
                         <BsPlayCircle />
-                        View Recipes
+                        <NavLink to="/recipe">View Recipes</NavLink>
                       </Button>
                     </WrapItem>
                   </Wrap>
@@ -132,7 +134,10 @@ class Banner extends Component {
                 <GridItem key={rec.recipeId._id}>
                   <Image
                     boxSize="500px"
-                    src={"http://95.111.202.157:8001/" + rec.recipeId.image}
+                    src={
+                      "https://foodielandnod.herokuapp.com/" +
+                      rec.recipeId.image
+                    }
                     borderRightRadius="10px"
                   />
                 </GridItem>

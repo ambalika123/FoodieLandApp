@@ -5,8 +5,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
-import Banner from "./components/Banner";
-import ImageSlider from "./components/ImageSlider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

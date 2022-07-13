@@ -6,7 +6,7 @@ class Categories extends Component {
     category: [],
   };
   getCategories = () => {
-    const url = "http://95.111.202.157:8001/api/getAllCategory";
+    const url = "https://foodielandnod.herokuapp.com/api/getAllCategory";
     return axios.get(url);
   };
   async componentDidMount() {
@@ -43,7 +43,7 @@ class Categories extends Component {
               <Image
                 borderRadius={"10px"}
                 boxSize="180px"
-                src={"http://95.111.202.157:8001/" + cat.image}
+                src={"https://foodielandnod.herokuapp.com/" + cat.image}
               />
               <Center fontWeight={"bold"} boxShadow={10} mb={15}>
                 {cat.categoryName}

@@ -7,7 +7,7 @@ class TryRecipes extends Component {
     recipes: [],
   };
   getRecipes = () => {
-    const url = "http://95.111.202.157:8001/api/v1/getAllRecipes";
+    const url = "https://foodielandnod.herokuapp.com/api/v1/getAllRecipes";
     return axios.get(url);
   };
   async componentDidMount() {
@@ -37,7 +37,9 @@ class TryRecipes extends Component {
           {this.state.recipes.map((rec) => (
             <Recipe
               key={rec._id}
-              image={"http://95.111.202.157:8001/" + rec.recipeId.image}
+              image={
+                "https://foodielandnod.herokuapp.com/" + rec.recipeId.image
+              }
               title={rec.recipeId.title}
               time={rec.recipeId.cookTime}
               category={rec.recipeId.categoryId.categoryName}

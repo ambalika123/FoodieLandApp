@@ -13,6 +13,8 @@ const Subscribe = (props) => {
   return (
     <Center>
       <Grid
+        align="center"
+        pt={30}
         m={20}
         width="1000px"
         mx="0px auto"
@@ -20,19 +22,18 @@ const Subscribe = (props) => {
         shadow="md"
         borderWidth="1px"
         borderRadius="20px"
-        templateColumns="repeat(3, 3fr)"
+        templateColumns="repeat(3, 1fr)"
       >
         <GridItem>
           <Image boxSize="200px" src="image.png" mr={20} mt={20} />
         </GridItem>
         <GridItem>
-          <Heading fontSize="3xl" mt={10}>
+          <Heading fontSize="4xl" mt={10} ml={-40}>
             Deliciousness to your inbox
           </Heading>
           <Text mr={5} color="grey" fontSize="sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            finibus placerat tellus. Donec augue ligula, dapibus nec lectus a,
-            semper elementum urna.
+            finibus placerat tellus.
             <Input
               m={5}
               placeholder="Your email address..."
