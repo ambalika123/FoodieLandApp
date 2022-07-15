@@ -25,13 +25,13 @@ const Subscribe = (props) => {
         templateColumns="repeat(3, 1fr)"
       >
         <GridItem>
-          <Image boxSize="200px" src="image.png" mr={20} mt={20} />
+          <Image boxSize="200px" src="image.png" mr={20} mt={20} ml={"-10"} />
         </GridItem>
         <GridItem>
-          <Heading fontSize="4xl" mt={10} ml={-40}>
+          <Heading fontSize="4xl" mt={10} ml={-20}>
             Deliciousness to your inbox
           </Heading>
-          <Text mr={5} color="grey" fontSize="sm">
+          <Text mr={5} color="grey" fontSize="sm" align={"center"} mt={5}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
             finibus placerat tellus.
             <Input

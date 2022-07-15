@@ -24,20 +24,25 @@ const Banner = () => {
     getPosts();
   }, []);
   const getPosts = async () => {
-    let result = await fetch(
+    let result = await axios.get(
       "https://foodielandnod.herokuapp.com/api/getAllBlog"
     );
-    result = await result.json();
+    // result = await result.json();
     setPosts(result);
   };
   const searchHandle = async (event) => {
     let key = event.target.value;
-    let result = await fetch(
-      `https://foodielandnod.herokuapp.com/api/getAllBlog/${key}`
-    );
-    result = await result.json();
-    if (result) {
-      setPosts(result);
+    // console.log(key);
+    if (key) {
+      let result = await axios.get(
+        `https://foodielandnod.herokuapp.com/api/getAllBlog/${key}`
+      );
+      // result = await result.json();
+      if (result) {
+        setPosts(result);
+      }
+    } else {
+      getPosts();
     }
   };
   return (
@@ -56,6 +61,7 @@ const Banner = () => {
           p={8}
           borderRadius="15px"
           fontSize={"xs"}
+          // value={posts}
           onChange={searchHandle}
         />
         <Button bgColor="black" color="white" borderRadius="10px" m={-40} p={7}>
