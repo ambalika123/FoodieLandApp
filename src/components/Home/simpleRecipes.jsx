@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Recipe from "./recipe";
 import { NavLink } from "react-router-dom";
+import poster from "../../images/poster.png";
 import {
   Grid,
   GridItem,
@@ -9,6 +10,7 @@ import {
   Center,
   Container,
   SimpleGrid,
+  Image,
 } from "@chakra-ui/react";
 class SimpleRecipes extends Component {
   state = {
@@ -42,8 +44,22 @@ class SimpleRecipes extends Component {
             </Grid>
           </Container>
         </Center>
-        <SimpleGrid columns={4} spacing={6} m={5}>
-          {this.state.recipes.slice(1, 5).map((rec) => (
+        <SimpleGrid columns={3} spacing={6} m={5}>
+          {this.state.recipes.slice(0, 5).map((rec, key) => (
+            <NavLink to={`/recipes/${rec._id}`}>
+              <Recipe
+                key={rec._id}
+                image={
+                  "https://foodielandnod.herokuapp.com/" + rec.recipeId.image
+                }
+                title={rec.recipeId.title}
+                time={rec.recipeId.cookTime}
+                category={rec.recipeId.categoryId.categoryName}
+              />
+            </NavLink>
+          ))}{" "}
+          <Image src={poster} w={"350px"} h={"350px"} m={5} />
+          {this.state.recipes.slice(5, 8).map((rec, key) => (
             <NavLink to={`/recipes/${rec._id}`}>
               <Recipe
                 key={rec._id}
