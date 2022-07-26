@@ -44,14 +44,17 @@ const Chef = (props) => {
             <HStack>
               <Avatar
                 name="Segun Adebayo"
-                src="https://bit.ly/prosper-baba"
-                // {
-                //   "https://foodielandnod.herokuapp.com/" + posts.userId.Image
-                // }
+                // src="https://bit.ly/prosper-baba"
+                src={
+                  posts &&
+                  posts.userId &&
+                  "https://foodielandnod.herokuapp.com/" + posts.userId.Image
+                }
               />
               <Text fontWeight={"bold"}>
-                Segun Adebayo
-                {/* {posts.userId.firstName} {posts.userId.lastName} */}
+                {/* Segun Adebayo */}
+                {posts && posts.userId && posts.userId.firstName}{" "}
+                {posts && posts.userId && posts.userId.lastName}
               </Text>
               <Spacer />
               <Text>
