@@ -4,13 +4,7 @@ import { TbToolsKitchen2 } from "react-icons/tb";
 const Recipe = ({ image, title, time, category }) => {
   return (
     <Box p={5} bg="#e6ffff" borderRadius={20} as="article">
-      <Image
-        h="250px"
-        objectFit="fill"
-        w="100%"
-        src={image}
-        alt="stock image"
-      />
+      <Image h="250px" objectFit="fill" w="100%" src={image} alt="image" />
       <Heading noOfLines={1} size="sm" fontWeight="bold" m={5}>
         {title}
       </Heading>

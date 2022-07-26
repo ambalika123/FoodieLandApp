@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Recipe from "../Home/recipe";
+import { NavLink } from "react-router-dom";
 import {
   Grid,
   GridItem,
@@ -20,7 +21,8 @@ class Recipes extends Component {
   async componentDidMount() {
     const { data: recipes } = await this.getRecipes();
     this.setState({ recipes });
-    console.log(recipes);
+    window.scrollTo(0, 0);
+    // console.log(recipes);
   }
   render() {
     return (
@@ -38,15 +40,17 @@ class Recipes extends Component {
         </Center>
         <SimpleGrid columns={4} spacing={6} m={5}>
           {this.state.recipes.slice(1, 5).map((rec) => (
-            <Recipe
-              key={rec._id}
-              image={
-                "https://foodielandnod.herokuapp.com/" + rec.recipeId.image
-              }
-              title={rec.recipeId.title}
-              time={rec.recipeId.cookTime}
-              category={rec.recipeId.categoryId.categoryName}
-            />
+            <NavLink to={`/recipes/${rec._id}`}>
+              <Recipe
+                key={rec._id}
+                image={
+                  "https://foodielandnod.herokuapp.com/" + rec.recipeId.image
+                }
+                title={rec.recipeId.title}
+                time={rec.recipeId.cookTime}
+                category={rec.recipeId.categoryId.categoryName}
+              />
+            </NavLink>
           ))}
         </SimpleGrid>
       </>

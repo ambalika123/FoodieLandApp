@@ -8,16 +8,17 @@ import Ingredients from "./Ingredients";
 import Nutrition from "./Nutrition";
 import Recipes from "./Recipes";
 
-const Recipe = () => {
+const Recipe = (props) => {
+  const recId = props.match.params.id;
   return (
     <Box>
       <Header />
-      <Banner />
-      <Nutrition />
+      <Banner recId={recId} />
+      <Nutrition recId={recId} />
       <Ingredients />
-      <Directions />
+      <Directions recId={recId} />
       <Subscribe />
-      <Recipes />
+      <Recipes recId={recId} />
       <Footer />
     </Box>
   );

@@ -4,7 +4,8 @@ import Header from "../common/Header";
 import Subscribe from "../common/Subscribe";
 import Banner from "./Banner";
 import { useEffect } from "react";
-const ListPage = () => {
+
+const Lists = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -18,4 +19,4 @@ const ListPage = () => {
   );
 };
 
-export default ListPage;
+export default Lists;

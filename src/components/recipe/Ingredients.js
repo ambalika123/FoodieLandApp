@@ -1,7 +1,7 @@
-import { Spacer } from "@chakra-ui/react";
-
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
+import poster from "../../images/poster.png";
 import {
   Avatar,
   Heading,
@@ -17,23 +17,20 @@ import {
   HStack,
   Flex,
 } from "@chakra-ui/react";
-const Ingredients = () => {
-  //   const [posts, setPosts] = useState([]);
-  //   useEffect(() => {
-  //     const fetchPosts = async () => {
-  //       const url = "https://foodielandnod.herokuapp.com/api/getAllBlog";
-  //       const res = await axios.get(url);
-  //       setPosts(res.data);
-  //     };
-
-  //     fetchPosts();
-  //   }, []);
+const Ingredients = (props) => {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const url = "https://foodielandnod.herokuapp.com/api/v1/getAllRecipes";
+      const { data: posts } = await axios.get(url);
+      setPosts(posts);
+    };
+    fetchPosts();
+  }, []);
   return (
     <>
       <Flex m={5} mt={10}>
-        {/* {posts.map((rec) => ( */}
-
-        <Box w="680px" boxSize={"780px"} ml="20">
+        <Box w="680px" boxSize={"700px"} ml="20">
           <Heading fontSize={"3xl"} m={8} ml={0} align="left">
             Ingredients
           </Heading>
@@ -108,56 +105,43 @@ const Ingredients = () => {
             </ul>
           </Text>
         </Box>
-        <Box w="400px" h={"600px"} align="right" borderRadius="20" mb={20}>
+        <Box borderRadius="20">
           <Heading fontSize={"3xl"} mt={5} align="center">
             Other Recipe
           </Heading>
-          <HStack m={5} fontSize="l">
-            <Image
-              src="chicken.jpg"
-              w={"300px"}
-              h={"130px"}
-              borderRadius="20"
-            />
-            <Text fontWeight="bold" noOfLines={3} fontSize={"xl"}>
-              Chicken Meat Balls with creamy chees..
-              <Text fontSize={"md"} color="gray.500" align={"left"} m={5}>
-                By Andreas Paula
-              </Text>
-            </Text>
-          </HStack>
-          <HStack m={5} fontSize="l">
-            <Image
-              src="chicken.jpg"
-              w={"300px"}
-              h={"130px"}
-              borderRadius="20"
-            />
-            <Text fontWeight="bold" noOfLines={3} fontSize={"xl"}>
-              Chicken Meat Balls with creamy chees..
-              <Text fontSize={"md"} color="gray.500" align={"left"} m={5}>
-                By Andreas Paula
-              </Text>
-            </Text>
-          </HStack>
-          <HStack m={5} fontSize="l">
-            <Image
-              src="chicken.jpg"
-              w={"300px"}
-              h={"130px"}
-              borderRadius="20"
-            />
-            <Text fontWeight="bold" noOfLines={3} fontSize={"xl"}>
-              Chicken Meat Balls with creamy chees..
-              <Text fontSize={"md"} color="gray.500" align={"left"} m={5}>
-                By Andreas Paula
-              </Text>
-            </Text>
-          </HStack>
-          <Image src="poster.png" w={"350px"} h={"350px"} m={5} mb={10} />
+          {posts.slice(1, 4).map((post) => (
+            <NavLink to={`/recipes/${post._id}`}>
+              <HStack m={5}>
+                <Image
+                  src={
+                    "https://foodielandnod.herokuapp.com/" + post.recipeId.image
+                  }
+                  overflow="hidden"
+                  boxSize="200px"
+                  height={"150px"}
+                  borderRadius="20"
+                  objectFit="cover"
+                />
+                <Box boxSize={"150px"}>
+                  <Text fontWeight="bold" noOfLines={3} fontSize={"xl"}>
+                    {post.recipeId.title}
+                  </Text>
+                  <Text
+                    fontSize={"sm"}
+                    color="gray.500"
+                    align={"left"}
+                    mt={5}
+                    fontWeight="bold"
+                  >
+                    By {post.recipeId.userId.firstName}{" "}
+                    {post.recipeId.userId.lastName}
+                  </Text>
+                </Box>
+              </HStack>
+            </NavLink>
+          ))}
+          <Image src={poster} w={"350px"} h={"350px"} m={5} />
         </Box>
-
-        {/* ))} */}
       </Flex>
     </>
   );

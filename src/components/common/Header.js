@@ -1,30 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {
-  Link,
-  Box,
-  Flex,
-  Text,
-  Stack,
-  HStack,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Link, Box, Flex, Text, Stack, HStack } from "@chakra-ui/react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-// const Links = ["Home", "Recipes", "Blog", "Contact", "About us"];
-// const NavLink = ({ children }) => (
-//   <Link
-//     px={2}
-//     py={1}
-//     rounded={"md"}
-//     _hover={{
-//       textDecoration: "none",
-//       bg: useColorModeValue("gray.200", "gray.700"),
-//     }}
-//     href={"#"}
-//   >
-//     {children}
-//   </Link>
-// );
 const Header = () => {
   return (
     <Box margin="20px">
@@ -37,18 +14,13 @@ const Header = () => {
             <NavLink to="/home">Home</NavLink>
             <NavLink to="/recipe">Recipes</NavLink>
             <NavLink to="/listpage">Blog</NavLink>
-            <NavLink to="/posts">Posts</NavLink>
             <NavLink to="/contact">Contact</NavLink>
             <NavLink to="/about">About Us</NavLink>
-            {/* {Links.map((link) => (
-              <NavLink key={link}>{link}</NavLink>
-            ))} */}
           </HStack>
         </HStack>
         <Stack
           color={"black"}
           spacing={10}
-          // align="center"
           justify={["center", "space-between", "flex-end", "flex-end"]}
           direction={["row", "row", "row", "row"]}
           pt={[4, 4, 0, 0]}
@@ -64,7 +36,7 @@ const Header = () => {
             </Link>
           </button>
           <button>
-            <Link href="https://www.instagram.com/">
+            <Link href="https://www.instagram.com/foodieland555/">
               <FaInstagram />
             </Link>
           </button>

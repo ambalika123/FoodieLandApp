@@ -1,41 +1,29 @@
 import {
   Image,
   Text,
-  Box,
   Heading,
-  Button,
   Flex,
   GridItem,
-  Grid,
   Avatar,
   Stack,
   VStack,
-  Spacer,
 } from "@chakra-ui/react";
 import moment from "moment";
-const BlogLayout = ({
-  image,
-  title,
-  name,
-  category,
-  lname,
-  userImage,
-  time,
-}) => {
+const BlogLayout = ({ image, title, name, lname, userImage, time }) => {
   return (
     <>
       <Flex align={"left"}>
-        <Stack m={5} align="left">
+        <Stack m={5} align="left" w={"40%"}>
           <Image
             w={"500px"}
             h={"200px"}
-            src={"pizza.avif"}
-            alt="stock image"
+            src={image}
+            alt="image"
             borderRadius={10}
           />
         </Stack>
 
-        <VStack m={10} align={"left"}>
+        <VStack m={10} align={"left"} w={"60%"}>
           <Heading size="md" fontWeight="bold" align="left">
             {title}
           </Heading>
@@ -48,10 +36,9 @@ const BlogLayout = ({
           <GridItem>
             <Avatar
               name="Kent Dodds"
-              src={"http://95.111.202.157:8001/" + userImage}
+              src={"https://foodielandnod.herokuapp.com/" + userImage}
             />
-            {name} {lname}
-            {moment(time).format("LL")}
+            {name} {lname} {moment(time).format("LL")}
           </GridItem>
         </VStack>
       </Flex>

@@ -8,7 +8,6 @@ import {
   Stack,
   Container,
   HStack,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
@@ -62,7 +61,7 @@ const Footer = () => {
             </Link>
           </button>
           <button>
-            <Link href="https://www.instagram.com/">
+            <Link href="https://www.instagram.com/foodieland555/">
               <FaInstagram />
             </Link>
           </button>

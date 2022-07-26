@@ -17,24 +17,31 @@ import {
   HStack,
   Flex,
 } from "@chakra-ui/react";
-const Nutrition = () => {
-  //   const [posts, setPosts] = useState([]);
-  //   useEffect(() => {
-  //     const fetchPosts = async () => {
-  //       const url = "https://foodielandnod.herokuapp.com/api/getAllBlog";
-  //       const res = await axios.get(url);
-  //       setPosts(res.data);
-  //     };
-
-  //     fetchPosts();
-  //   }, []);
+const Nutrition = (props) => {
+  const [posts, setPosts] = useState([]);
+  const recipeId = props.recId;
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const url = `https://foodielandnod.herokuapp.com/api/recipeDetails?id=${props.recId}`;
+      const { data: posts } = await axios.get(url);
+      setPosts(posts.data);
+    };
+    fetchPosts();
+  }, [recipeId]);
   return (
     <>
       <Flex m={5}>
-        {/* {posts.map((rec) => ( */}
-
         <Box w="680px" boxSize={"780px"} ml="20" overflow={"hidden"}>
-          <Image src="recipe.avif" w="700px" h={"600px"} borderRadius={20} />
+          <Image
+            src={
+              posts &&
+              posts.recipeId &&
+              "https://foodielandnod.herokuapp.com/" + posts.recipeId.image
+            }
+            w="700px"
+            h={"600px"}
+            borderRadius={20}
+          />
         </Box>
         <Box
           w="350px"
@@ -51,7 +58,11 @@ const Nutrition = () => {
               Calories
             </Text>{" "}
             <Spacer />
-            <Text fontWeight="bold">219.9 Kcal</Text>
+            <Text fontWeight="bold">
+              {posts &&
+                posts.nutritionInformation &&
+                posts.nutritionInformation.calories}
+            </Text>
           </HStack>
           <Flex borderBottom="1px" borderColor="gray.300" ml={5} mr={5}></Flex>
           <HStack m={5} fontSize="l">
@@ -59,7 +70,11 @@ const Nutrition = () => {
               Total Fat
             </Text>{" "}
             <Spacer />
-            <Text fontWeight="bold">10.7 g</Text>
+            <Text fontWeight="bold">
+              {posts &&
+                posts.nutritionInformation &&
+                posts.nutritionInformation.totalFat}
+            </Text>
           </HStack>
           <Flex borderBottom="1px" borderColor="gray.300" ml={5} mr={5}></Flex>
           <HStack m={5} fontSize="l">
@@ -67,7 +82,11 @@ const Nutrition = () => {
               Protein
             </Text>{" "}
             <Spacer />
-            <Text fontWeight="bold">7.9 g</Text>
+            <Text fontWeight="bold">
+              {posts &&
+                posts.nutritionInformation &&
+                posts.nutritionInformation.protein}
+            </Text>
           </HStack>
           <Flex borderBottom="1px" borderColor="gray.300" ml={5} mr={5}></Flex>
           <HStack m={5} fontSize="l">
@@ -75,7 +94,12 @@ const Nutrition = () => {
               Carbohydrates
             </Text>
             <Spacer />
-            <Text fontWeight="bold">22.3 g</Text>
+            <Text fontWeight="bold">
+              {" "}
+              {posts &&
+                posts.nutritionInformation &&
+                posts.nutritionInformation.carbohydrate}
+            </Text>
           </HStack>
           <Flex borderBottom="1px" borderColor="gray.300" ml={5} mr={5}></Flex>
           <HStack m={5} fontSize="l">
@@ -83,13 +107,19 @@ const Nutrition = () => {
               Cholesterol
             </Text>
             <Spacer />
-            <Text fontWeight="bold">37.4 mg</Text>
+            <Text fontWeight="bold">
+              {" "}
+              {posts &&
+                posts.nutritionInformation &&
+                posts.nutritionInformation.cholesterol}
+            </Text>
           </HStack>
           <Flex borderBottom="1px" borderColor="gray.300" ml={5} mr={5}></Flex>
           <HStack mt={36}>
             <Text m={5} color="gray.500" fontSize={"sm"} align="center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum eget viverra nunc.
+              {posts &&
+                posts.nutritionInformation &&
+                posts.nutritionInformation.nutritionTitle}
             </Text>
           </HStack>
         </Box>

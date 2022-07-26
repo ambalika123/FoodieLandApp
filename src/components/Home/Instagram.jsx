@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Recipe from "./recipe";
 import { FaInstagram } from "react-icons/fa";
-// import { InstagramMedia } from "react-instagram-media";
 import {
   Box,
   Text,
@@ -58,15 +57,17 @@ class Instagram extends Component {
             ))}
           </SimpleGrid>
           <Stack align="center">
-            <Button
-              bgColor="black"
-              color="white"
-              borderRadius="10px"
-              align="center"
-              mb={5}
-            >
-              Visit our Instagram <FaInstagram p={5} />
-            </Button>
+            <a href="https://www.instagram.com/foodieland555/">
+              <Button
+                bgColor="black"
+                color="white"
+                borderRadius="10px"
+                align="center"
+                mb={5}
+              >
+                Visit our Instagram <FaInstagram p={5} />
+              </Button>
+            </a>
           </Stack>
         </Box>
         {/* <InstagramMedia

@@ -116,18 +116,20 @@ class Banner extends Component {
                       </Grid>
                     </WrapItem>
                     <WrapItem>
-                      <Button
-                        bgColor="black"
-                        color="white"
-                        borderRadius="10px"
-                        mb={5}
-                        ml={5}
-                        p={8}
-                        align="right"
-                      >
-                        <BsPlayCircle />
-                        <NavLink to="/recipe">View Recipes</NavLink>
-                      </Button>
+                      <NavLink to={`/recipes/${rec._id}`}>
+                        <Button
+                          bgColor="black"
+                          color="white"
+                          borderRadius="10px"
+                          mb={5}
+                          ml={5}
+                          p={8}
+                          align="right"
+                        >
+                          <BsPlayCircle />
+                          View Recipes
+                        </Button>
+                      </NavLink>
                     </WrapItem>
                   </Wrap>
                 </GridItem>

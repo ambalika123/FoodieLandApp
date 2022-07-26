@@ -9,6 +9,7 @@ import {
   Flex,
   Link,
 } from "@chakra-ui/react";
+import cooking from "../../images/cooking.avif";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 const Questions = () => {
   return (
@@ -36,7 +37,7 @@ const Questions = () => {
           Do you cook at home on your days off?
         </Heading>
         <Image
-          src="cooking.avif"
+          src={cooking}
           mt={10}
           borderRadius={"20px"}
           h={"400px"}

@@ -5,53 +5,46 @@ import {
   Text,
   Box,
   Heading,
-  Button,
-  GridItem,
-  Grid,
-  Avatar,
   SimpleGrid,
-  Center,
   HStack,
   Flex,
 } from "@chakra-ui/react";
-
-import Pagination from "./Pagination";
+import poster from "../../images/poster.png";
 import BlogLayout from "./BlogLayout";
-const Blogs = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
+import { NavLink } from "react-router-dom";
+const Blogs = ({ posts }) => {
+  const [recipes, setRecipes] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [postsPerPage] = useState(5);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const url = "https://foodielandnod.herokuapp.com/api/getAllBlog";
-      setLoading(true);
+    const fetchRecipes = async () => {
+      const url = "https://foodielandnod.herokuapp.com/api/v1/getAllRecipes";
       const res = await axios.get(url);
-      setPosts(res.data);
-      setLoading(false);
+      setRecipes(res.data);
     };
 
-    fetchPosts();
+    fetchRecipes();
   }, []);
-  // console.log(posts);
+  //console.log(posts);
   // Get current posts
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  // const indexOfLastPost = currentPage * postsPerPage;
+  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  // const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // // Change page
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <>
-      <Flex>
-        <Box w="800px">
-          <SimpleGrid>
-            {currentPosts.map((rec) => (
+    <Flex>
+      <Box w="800px">
+        <SimpleGrid>
+          {posts.map((rec) => (
+            <NavLink to={`/posts/${rec._id}`}>
               <BlogLayout
                 key={rec._id}
-                // image={"https://foodielandnod.herokuapp.com/" + rec.image}
+                image={"https://foodielandnod.herokuapp.com/" + rec.image}
                 title={rec.title}
                 subTitle={rec.subTitle}
                 category={rec.description}
@@ -59,68 +52,60 @@ const Blogs = () => {
                 lname={rec.userId.lastName}
                 userImage={rec.userId.Image}
               />
-            ))}
-          </SimpleGrid>
-        </Box>
+            </NavLink>
+          ))}
+        </SimpleGrid>
+      </Box>
 
-        <Box w="400px" h={"600px"} align="right" borderRadius="20" mb={20}>
-          <Heading fontSize={"3xl"} mt={5} align="center">
-            Tasty Recipes
-          </Heading>
-          <HStack m={5} fontSize="l">
-            <Image
-              src="chicken.jpg"
-              w={"300px"}
-              h={"130px"}
-              borderRadius="20"
-            />
-            <Text fontWeight="bold" noOfLines={3} fontSize={"xl"}>
-              Chicken Meat Balls with creamy chees..
-              <Text fontSize={"md"} color="gray.500" align={"left"} m={5}>
-                By Andreas Paula
-              </Text>
-            </Text>
-          </HStack>
-          <HStack m={5} fontSize="l">
-            <Image
-              src="chicken.jpg"
-              w={"300px"}
-              h={"130px"}
-              borderRadius="20"
-            />
-            <Text fontWeight="bold" noOfLines={3} fontSize={"xl"}>
-              Chicken Meat Balls with creamy chees..
-              <Text fontSize={"md"} color="gray.500" align={"left"} m={5}>
-                By Andreas Paula
-              </Text>
-            </Text>
-          </HStack>
-          <HStack m={5} fontSize="l">
-            <Image
-              src="chicken.jpg"
-              w={"300px"}
-              h={"130px"}
-              borderRadius="20"
-            />
-            <Text fontWeight="bold" noOfLines={3} fontSize={"xl"}>
-              Chicken Meat Balls with creamy chees..
-              <Text fontSize={"md"} color="gray.500" align={"left"} m={5}>
-                By Andreas Paula
-              </Text>
-            </Text>
-          </HStack>
-          <Image src="poster.png" w={"350px"} h={"350px"} m={5} mb={10} />
-        </Box>
-      </Flex>
+      <Box borderRadius="20">
+        <Heading fontSize={"3xl"} mt={5} align="left">
+          Tasty Recipes
+        </Heading>
+        {recipes &&
+          recipes.slice(1, 4).map((rec) => (
+            <NavLink to={`/recipes/${rec._id}`}>
+              <HStack m={5}>
+                <Image
+                  src={
+                    rec &&
+                    rec.recipeId &&
+                    "https://foodielandnod.herokuapp.com/" + rec.recipeId.image
+                  }
+                  overflow="hidden"
+                  boxSize="200px"
+                  height={"150px"}
+                  borderRadius="20"
+                  objectFit="cover"
+                />
+                <Box boxSize={"150px"}>
+                  <Text fontWeight="bold" noOfLines={3} fontSize={"xl"}>
+                    {rec && rec.recipeId && rec.recipeId.title}
+                  </Text>
+                  <Text
+                    fontSize={"sm"}
+                    color="gray.500"
+                    align={"left"}
+                    mt={5}
+                    fontWeight="bold"
+                  >
+                    By {rec && rec.recipeId && rec.recipeId.userId.firstName}{" "}
+                    {rec && rec.recipeId && rec.recipeId.userId.lastName}
+                  </Text>
+                </Box>
+              </HStack>
+            </NavLink>
+          ))}
+        <Image src={poster} w={"350px"} h={"350px"} m={5} />
+      </Box>
+    </Flex>
 
-      <Center>
-        <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={posts.length}
-          paginate={paginate}
-        />
-      </Center>
-    </>
+    // {/* <Center>
+    //   <Pagination
+    //     postsPerPage={postsPerPage}
+    //     totalPosts={posts.length}
+    //     paginate={paginate}
+    //   />
+    // </Center> */}
   );
 };
 export default Blogs;

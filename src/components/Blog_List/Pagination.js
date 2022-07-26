@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Center,
-  Grid,
-  GridItem,
-  HStack,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react";
+import { Button, Center, Wrap, WrapItem } from "@chakra-ui/react";
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
 
