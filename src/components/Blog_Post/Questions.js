@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Avatar,
   Heading,
@@ -12,6 +12,9 @@ import {
 import cooking from "../../images/cooking.avif";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 const Questions = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <Flex m={5}>
       <Box ml={20} width={"800px"}>

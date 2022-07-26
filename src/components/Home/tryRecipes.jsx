@@ -35,7 +35,7 @@ class TryRecipes extends Component {
         </Grid>
 
         <SimpleGrid columns={4} spacing={6} m={5}>
-          {this.state.recipes.map((rec) => (
+          {this.state.recipes.slice(1, 9).map((rec) => (
             <NavLink to={`/recipes/${rec._id}`}>
               <Recipe
                 key={rec._id}

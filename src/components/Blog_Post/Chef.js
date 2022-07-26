@@ -28,6 +28,7 @@ const Chef = (props) => {
     };
     // console.log(posts);
     fetchPosts();
+    window.scroll(0, 0);
   }, []);
   return (
     <>

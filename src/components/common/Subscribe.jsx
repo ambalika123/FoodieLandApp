@@ -124,7 +124,7 @@ const Subscribe = () => {
           </Text>
         </GridItem>
         <GridItem>
-          <Image boxSize="200px" src={subscribe_two} ml={135} mt={20} />
+          <Image boxSize="200px" src={subscribe_two} ml={110} mt={20} />
         </GridItem>
       </Grid>
     </Center>

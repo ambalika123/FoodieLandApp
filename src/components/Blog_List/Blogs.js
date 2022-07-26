@@ -24,8 +24,8 @@ const Blogs = ({ posts }) => {
       const res = await axios.get(url);
       setRecipes(res.data);
     };
-
     fetchRecipes();
+    window.scroll(0, 0);
   }, []);
   //console.log(posts);
   // Get current posts
