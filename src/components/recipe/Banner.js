@@ -23,7 +23,7 @@ import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
 import moment from "moment";
 const Banner = (props) => {
-  console.log(props);
+  //console.log(props);
   const recipeId = props.recId;
   const [posts, setPosts] = useState([]);
 

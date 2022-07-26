@@ -21,7 +21,7 @@ class SimpleRecipes extends Component {
   async componentDidMount() {
     const { data: recipes } = await this.getRecipes();
     this.setState({ recipes });
-    console.log(recipes);
+    // console.log(recipes);
   }
   render() {
     return (

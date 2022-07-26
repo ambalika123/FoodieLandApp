@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import poster from "../../images/poster.png";
 import {
   Image,
@@ -16,7 +16,7 @@ import {
 import moment from "moment";
 import { NavLink } from "react-router-dom";
 const Recipes = ({ posts }) => {
-  console.log(posts);
+  // console.log(posts);
   return (
     <Flex>
       <Box w="800px">

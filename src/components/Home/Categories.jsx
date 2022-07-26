@@ -12,7 +12,7 @@ class Categories extends Component {
   async componentDidMount() {
     const { data: category } = await this.getCategories();
     this.setState({ category });
-    console.log(category);
+    //console.log(category);
   }
   render() {
     return (

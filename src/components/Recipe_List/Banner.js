@@ -36,7 +36,7 @@ const Banner = () => {
       result = await result.json();
       // console.log(posts);
       if (result) {
-        console.log("hello");
+        //console.log("hello");
         setPosts(result);
       }
     } else {

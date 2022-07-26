@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Link,
@@ -12,6 +12,9 @@ import {
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <Box m={100}>
       <Flex alignItems={"center"} justifyContent={"space-between"}>

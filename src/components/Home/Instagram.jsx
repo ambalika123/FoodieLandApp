@@ -21,7 +21,7 @@ class Instagram extends Component {
   async componentDidMount() {
     const { data: blogs } = await this.getBlogs();
     this.setState({ blogs });
-    console.log(blogs);
+    //console.log(blogs);
   }
   render() {
     return (

@@ -26,7 +26,7 @@ const Chef = (props) => {
       const { data: posts } = await axios.get(url);
       setPosts(posts.data);
     };
-    console.log(posts);
+    // console.log(posts);
     fetchPosts();
   }, []);
   return (
