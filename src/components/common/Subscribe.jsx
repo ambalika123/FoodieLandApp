@@ -114,9 +114,9 @@ const Subscribe = () => {
                     >
                       Subscribe
                     </Button>
-                    {/* <Text color={"red"} fontSize={"sm"}>
+                    <Text color={"red"} fontSize={"sm"}>
                       {errors.email && touched.email && errors.email}
-                    </Text> */}
+                    </Text>
                   </FormControl>
                 </form>
               )}
