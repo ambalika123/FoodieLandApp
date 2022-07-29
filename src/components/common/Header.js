@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Link, Box, Flex, Text, Stack, HStack } from "@chakra-ui/react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+
 const Header = () => {
   return (
     <Box margin="20px">
@@ -16,6 +17,9 @@ const Header = () => {
             <NavLink to="/listpage">Blog</NavLink>
             <NavLink to="/contact">Contact</NavLink>
             <NavLink to="/about">About Us</NavLink>
+            <NavLink to="/signin">Login</NavLink>
+            <NavLink to="/signup">Register</NavLink>
+            <NavLink to="/logout">Logout</NavLink>
           </HStack>
         </HStack>
         <Stack

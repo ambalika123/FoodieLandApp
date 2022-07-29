@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from "react";
 import Categories from "./Categories";
 import Chef from "./chef";
 import TryRecipes from "./tryRecipes";
@@ -8,7 +9,12 @@ import { Box } from "@chakra-ui/react";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
 import Subscribe from "../common/Subscribe";
+
 const Home = () => {
+  setTimeout(() => {
+    localStorage.removeItem("token");
+    window.location = "/signin";
+  }, 10000);
   return (
     <>
       <Box>
@@ -25,4 +31,5 @@ const Home = () => {
     </>
   );
 };
+
 export default Home;
