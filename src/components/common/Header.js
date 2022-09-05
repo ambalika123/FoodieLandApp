@@ -17,7 +17,6 @@ const Header = () => {
             <NavLink to="/listpage">Blog</NavLink>
             <NavLink to="/contact">Contact</NavLink>
             <NavLink to="/about">About Us</NavLink>
-            <NavLink to="/signin">Login</NavLink>
             <NavLink to="/signup">Register</NavLink>
             <NavLink to="/logout">Logout</NavLink>
           </HStack>

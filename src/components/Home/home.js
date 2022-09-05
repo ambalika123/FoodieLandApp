@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { Component } from "react";
 import Categories from "./Categories";
 import Chef from "./chef";
 import TryRecipes from "./tryRecipes";
@@ -9,27 +9,26 @@ import { Box } from "@chakra-ui/react";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
 import Subscribe from "../common/Subscribe";
+class Home extends Component {
+  state = {};
+  render() {
+    const { user } = this.props;
 
-const Home = () => {
-  setTimeout(() => {
-    localStorage.removeItem("token");
-    window.location = "/signin";
-  }, 10000);
-  return (
-    <>
-      <Box>
-        <Header />
-        <ImageSlider />
-        <Categories />
-        <SimpleRecipes />
-        <Chef />
-        <Instagram />
-        <TryRecipes />
-        <Subscribe />
-        <Footer />
-      </Box>
-    </>
-  );
-};
-
+    return (
+      <>
+        <Box>
+          <Header />
+          <ImageSlider />
+          <Categories />
+          <SimpleRecipes />
+          <Chef />
+          <Instagram />
+          <TryRecipes />
+          <Subscribe />
+          <Footer />
+        </Box>
+      </>
+    );
+  }
+}
 export default Home;
