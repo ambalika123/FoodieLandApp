@@ -28,7 +28,6 @@ class LoginForm extends Form {
   doSubmit = async () => {
     try {
       const { data } = this.state;
-      console.log(data);
       await auth.login(data.email, data.password);
       const { state } = this.props.location;
       // if state is not defined we will redirect the user to the homepage
