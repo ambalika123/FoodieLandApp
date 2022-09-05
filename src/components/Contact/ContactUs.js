@@ -67,7 +67,7 @@ const ContactUs = () => {
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            const formdata = JSON.stringify(values, null, 2);
+            const formdata = window.alert(JSON.stringify(values, null, 2));
 
             fetch("https://foodielandnod.herokuapp.com/api/addContactDetails", {
               method: "POST",
