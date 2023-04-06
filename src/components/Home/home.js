@@ -12,7 +12,7 @@ import Subscribe from "../common/Subscribe";
 class Home extends Component {
   state = {};
   render() {
-    const { user } = this.props;
+//     const { user } = this.props;
 
     return (
       <>
