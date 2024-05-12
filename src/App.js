@@ -18,7 +18,7 @@ import auth from "./components/Auth/authService";
 import Header from "./components/common/Header";
 
 const App = (props) => {
- // if (!localStorage.getItem("token") == "") {
+ if (!localStorage.getItem("token") == "") {
     let token = localStorage.getItem("token");
     const { exp } = jwtDecode(token);
     // const { iat } = jwtDecode(token);
@@ -64,13 +64,13 @@ const App = (props) => {
         </React.Fragment>
       );
     }
-  // } else {
-  //   return (
-  //     <>
-  //       <Route path="/signin" render={(props) => <LoginForm {...props} />} />
-  //       <Redirect from="/" exact to="/signin" />
-  //     </>
-  //   );
-  // }
+  } else {
+    return (
+      <>
+        <Route path="/signin" render={(props) => <LoginForm {...props} />} />
+        <Redirect from="/" exact to="/signin" />
+      </>
+    );
+  }
 };
 export default App;
